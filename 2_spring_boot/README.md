@@ -1,3 +1,12 @@
+## 목차
+
+- [Spring Boot](#spring-boot)
+    - [스프링 부트란 ?](#스프링-부트란-)
+    - [스프링 부트의 주요 목표](#스프링-부트의-주요-목표)
+    - [Build Tool](#build-tool)
+    - [Servlet Containers](#servlet-containers)
+  - [클라이언트와 통신하는 방식 예제 코드 확인해보기](#클라이언트와-통신하는-방식-예제-코드-확인해보기)
+
 # Spring Boot
 
 ### 스프링 부트란 ?
@@ -28,7 +37,6 @@
 |Maven|3.3+|
 |Gradle|4.x (4.4 and later) and 5.x|
 
-
 ### Servlet Containers
 
 |Name|servlet version|
@@ -37,3 +45,7 @@
 |Jetty 9.4|3.1|
 |Undertow 2.0|4.0|
 |Netty|-|
+
+## 클라이언트와 통신하는 방식 예제 코드 확인해보기
+
+- [🟩 **hello Project README**](./hello)
