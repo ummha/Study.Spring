@@ -6,7 +6,7 @@
 server.port=9090
 ```
 
-# GET
+# 통신 방식 예제 코드
 
 ### ✅ [1. GET 방식: GetApiController](./src/main/java/com/example/hello/controller/GetApiController.java)
 
