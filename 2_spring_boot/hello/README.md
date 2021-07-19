@@ -28,3 +28,7 @@ server.port=9090
 - [**DTO: User**](./src/main/java/com/example/hello/dto/User.java)
 
 ### ✅ [6. Response 방식 (`page`, `@ResponseBody`, `@JsonInclude`): PageController](./src/main/java/com/example/hello/controller/PageController.java)
+
+### ✅ [7. ObjectMapper : test/HelloApplicationTests](./src/test/java/com/example/hello/HelloApplicationTests.java)
+
+- [**DTO: User**](./src/main/java/com/example/hello/objectMapper/User.java)
