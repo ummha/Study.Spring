@@ -26,3 +26,5 @@ server.port=9090
 ### ✅ [5. Response 방식 (`text`, `json`, `ResponseEntity<T>`): ApiController](./src/main/java/com/example/hello/controller/ApiController.java)
 
 - [**DTO: User**](./src/main/java/com/example/hello/dto/User.java)
+
+### ✅ [6. Response 방식 (`page`, `@ResponseBody`, `@JsonInclude`): PageController](./src/main/java/com/example/hello/controller/PageController.java)
