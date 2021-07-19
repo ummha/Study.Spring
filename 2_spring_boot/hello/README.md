@@ -21,4 +21,8 @@ server.port=9090
 - [**DTO: PutRequest**](./src/main/java/com/example/hello/dto/PutRequest.java)
 - [**DTO: CarDto**](./src/main/java/com/example/hello/dto/CarDto.java)
 
-### ✅ [3. DELETE 방식: DeleteApiController](./src/main/java/com/example/hello/controller/DeleteApiController.java)
+### ✅ [4. DELETE 방식: DeleteApiController](./src/main/java/com/example/hello/controller/DeleteApiController.java)
+
+### ✅ [5. Response 방식 (`text`, `json`, `ResponseEntity<T>`): ApiController](./src/main/java/com/example/hello/controller/ApiController.java)
+
+- [**DTO: User**](./src/main/java/com/example/hello/dto/User.java)
