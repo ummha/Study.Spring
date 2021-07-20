@@ -2,6 +2,9 @@
 
 - [WEB](#web)
 - [Spring](#spring)
+  - [IoC (Inversion of Control)](#ioc-inversion-of-control)
+  - [DI (Dependency Injection)](#di-dependency-injection)
+    - [장점](#장점)
 - [Spring boot](#spring-boot)
 
 # WEB
@@ -26,6 +29,19 @@
 
 ![](./images/spring.jpg)
 
+## IoC (Inversion of Control)
+
+- 스프링에서는 일반적인 Java 객체를 new로 생성하여 개발자가 관리 하는 것이 아닌 Spring Contrainer에 모두 맡긴다.
+- 즉, 개발자에서 -> 프레임워크로 **제어**의 객체 관리의 **권한이 넘어 갔음** 으로 **"제어의 역전"** 이라고 한다.
+
+## DI (Dependency Injection)
+
+### 장점
+
+- 의존성으로 부터 격리시켜 코드 테스트에 용이하다.
+- DI를 통하여, 불가능한 상황을 Mock와 같은 기술을 통하여, 안정적으로 테스트 가능하다.
+- 코드를 확장하거나 변경 할때 영향을 최소화 한다. (추상화)
+- 순환참조를 막을 수 있다.
 
 # Spring boot
 
