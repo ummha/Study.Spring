@@ -18,7 +18,8 @@
     - [Gradle dependencies](#gradle-dependencies)
     - [Bean validation spec](#bean-validation-spec)
     - [핸드폰번호 정규식](#핸드폰번호-정규식)
-    - [spring boot validation basic](#spring-boot-validation-basic)
+    - [spring boot basic validation](#spring-boot-basic-validation)
+    - [spring boot custom validation](#spring-boot-custom-validation)
 
 # WEB
 
@@ -152,19 +153,19 @@ public void run(String id, String pw, int age){
 
 |annotation|검증 내용|
 |---|---|
-|@Size|문자 길이 측정 (int Tyoe 불가)|
-|@NotNull|null 불가|
-|@NotEmpty|null, "" 불가|
-|@NotBlank|null, "", " " 불가|
-|@Past|과거 날짜|
-|@PastOrPresent|오늘이나 과거 날짜|
-|@Future|미래 날짜|
-|@FutureOrPresent|오늘이거나 미래 날짜|
-|@Pattern|정규식 적용|
-|@Max|최대값|
-|@Min|최소값|
-|@AssertTrue/False|별도 Logic 적용|
-|@Valid|해당 object validation 실행|
+|`@Size`|문자 길이 측정 (int Tyoe 불가)|
+|`@NotNull`|null 불가|
+|`@NotEmpty`|null, "" 불가|
+|`@NotBlank`|null, "", " " 불가|
+|`@Past`|과거 날짜|
+|`@PastOrPresent`|오늘이나 과거 날짜|
+|`@Future`|미래 날짜|
+|`@FutureOrPresent`|오늘이거나 미래 날짜|
+|`@Pattern`|정규식 적용|
+|`@Max`|최대값|
+|`@Min`|최소값|
+|`@AssertTrue`/False|별도 Logic 적용|
+|`@Valid`|해당 object validation 실행|
 
 ### Gradle dependencies
 
@@ -180,7 +181,12 @@ public void run(String id, String pw, int age){
 
 - `"^\\d{2,3}-\\d{3,4}-\\d{4}$"`
 
-### spring boot validation basic
+### spring boot basic validation
 
 - [simple validation project](./7_validation)
 
+### spring boot custom validation
+
+- `AssertTrue/False`와 같은 method 지정을 통해서 Custom Logic 적용 가능
+- `ConstraintValidator`를 적용하여 재사용이 가능한 Custom Logic 적용 가능
+- [custom validation project](./7_validation)
