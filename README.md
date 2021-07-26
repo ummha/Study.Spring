@@ -11,6 +11,14 @@
     - [예제 코드](#예제-코드-1)
 - [Spring Boot](#spring-boot)
   - [Spring Boot Annotations](#spring-boot-annotations)
+  - [Spring Boot Validation](#spring-boot-validation)
+    - [예제 코드](#예제-코드-2)
+    - [예제 코드의 문제점](#예제-코드의-문제점)
+    - [Annotation 기반 Validation](#annotation-기반-validation)
+    - [Gradle dependencies](#gradle-dependencies)
+    - [Bean validation spec](#bean-validation-spec)
+    - [핸드폰번호 정규식](#핸드폰번호-정규식)
+    - [spring boot validation basic](#spring-boot-validation-basic)
 
 # WEB
 
@@ -112,3 +120,67 @@
 |`@Around`|AOP 이전/이후 모두 포함 예외 발생 포함|
 |`@AfterReturning`|AOP 메소드의 호출이 정상일 때 실행|
 |`@AfterThrowing`|AOP시 해당 메소드가 예외 발생시 지정|
+
+
+## Spring Boot Validation
+
+Validation이란 프로그래밍에 있어서 가장 필요한 부분이다. 특히 Java에서는 null 값에 대해서 접근  
+하려고 할 때 null pointer exception이 발생 함으로, 이러한 부분을 방지 하기 위해서 미리 검증을 하는  
+과정을 Validation 이라고 한다.
+
+### 예제 코드
+
+```java
+public void run(String id, String pw, int age){
+  if(id == nul || pw == null){
+    return;
+  }
+  if(age == 0){
+    return;
+  }
+}
+```
+
+### 예제 코드의 문제점
+
+1. 검증해야 할 값이 많은 경우 코드의 길이가 길어 진다.
+2. 구현에 따라서 달라 질 수 있지만 Service Logic과의 분리가 필요하다.
+3. 흩어져 있는 경우 어디에서 검증을 하는지 알기 어려우며, 재사용의 한계가 있다.
+4. 구현에 따라 달라 질 수 있지만, 검증 Logic이 변경 되는 경우 테스트 코드 등 참조하는 클래스에서 Logic이 변경되어야 하는 부분이 발생 할 수 있다.
+
+### Annotation 기반 Validation
+
+|annotation|검증 내용|
+|---|---|
+|@Size|문자 길이 측정 (int Tyoe 불가)|
+|@NotNull|null 불가|
+|@NotEmpty|null, "" 불가|
+|@NotBlank|null, "", " " 불가|
+|@Past|과거 날짜|
+|@PastOrPresent|오늘이나 과거 날짜|
+|@Future|미래 날짜|
+|@FutureOrPresent|오늘이거나 미래 날짜|
+|@Pattern|정규식 적용|
+|@Max|최대값|
+|@Min|최소값|
+|@AssertTrue/False|별도 Logic 적용|
+|@Valid|해당 object validation 실행|
+
+### Gradle dependencies
+
+`implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.5.2'`
+
+- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
+
+### Bean validation spec
+
+- https://beanvalidation.org/2.0-jsr380/
+
+### 핸드폰번호 정규식
+
+- `"^\\d{2,3}-\\d{3,4}-\\d{4}$"`
+
+### spring boot validation basic
+
+- [simple validation project](./7_validation)
+
