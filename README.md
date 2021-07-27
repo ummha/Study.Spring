@@ -3,16 +3,16 @@
 - [WEB](#web)
 - [Spring](#spring)
   - [IoC (Inversion of Control)](#ioc-inversion-of-control)
-    - [예제 코드](#예제-코드)
+    - [IoC 예제 코드](#ioc-예제-코드)
   - [DI (Dependency Injection)](#di-dependency-injection)
   - [AOP (Aspect Oriented Programming)](#aop-aspect-oriented-programming)
     - [관점 지향 프로그램](#관점-지향-프로그램)
     - [AOP 주요 Annotation](#aop-주요-annotation)
-    - [예제 코드](#예제-코드-1)
+    - [AOP 예제 코드](#aop-예제-코드)
 - [Spring Boot](#spring-boot)
   - [Spring Boot Annotations](#spring-boot-annotations)
   - [Spring Boot Validation](#spring-boot-validation)
-    - [예제 코드](#예제-코드-2)
+    - [예제 코드](#예제-코드)
     - [예제 코드의 문제점](#예제-코드의-문제점)
     - [Annotation 기반 Validation](#annotation-기반-validation)
     - [Gradle dependencies](#gradle-dependencies)
@@ -20,8 +20,10 @@
     - [핸드폰번호 정규식](#핸드폰번호-정규식)
     - [spring boot basic validation](#spring-boot-basic-validation)
     - [spring boot custom validation](#spring-boot-custom-validation)
+  - [Spring Boot Exception](#spring-boot-exception)
+    - [예제 코드](#예제-코드-1)
 
-# WEB
+# WEB 
 
 - [WEB 개요](./1_web)
 
@@ -48,7 +50,7 @@
 - 스프링에서는 일반적인 Java 객체를 new로 생성하여 개발자가 관리 하는 것이 아닌 Spring Contrainer에 모두 맡긴다.
 - 즉, 개발자에서 -> 프레임워크로 **제어**의 객체 관리의 **권한이 넘어 갔음** 으로 **"제어의 역전"** 이라고 한다.
 
-### 예제 코드
+### IoC 예제 코드
 
 - [java ioc / di](./3_ioc)
 - [spring ioc](./4_spring-ioc)
@@ -83,7 +85,7 @@
 |`@AfterThrowing`|메소드 호출 실패 예외 발생 (Throws)|
 |`@Around`|Before / After 모두 제어|
 
-### 예제 코드
+### AOP 예제 코드
 
 - [aop](./5_aop)
 
@@ -190,3 +192,22 @@ public void run(String id, String pw, int age){
 - `AssertTrue/False`와 같은 method 지정을 통해서 Custom Logic 적용 가능
 - `ConstraintValidator`를 적용하여 재사용이 가능한 Custom Logic 적용 가능
 - [custom validation project](./7_validation)
+
+## Spring Boot Exception
+
+- Exception 처리
+
+Web Application 의 입장에서 바라 보았을때, 에러가 났을 때 내려줄 수 있는 방법은 많지 않다.
+
+    1. 에러 페이지
+    2. 4xx Error or 5xx Error
+    3. Client가 200 외에 처리를 하지 못 할 때는 200을 내려주고 별도의 에러 Message 전달
+
+|annotation|설명|
+|---|---|
+|`@ControllerAdvice`|Global 예외 처리 및 특정 package / Controller 예외처리|
+|`@ExceptionHandler`|특정 Controller의 예외처리|
+
+### 예제 코드
+
+- [spring boot exception project](./8_exception)
