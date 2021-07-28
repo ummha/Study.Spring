@@ -22,10 +22,13 @@
     - [spring boot custom validation](#spring-boot-custom-validation)
   - [Spring Boot Exception](#spring-boot-exception)
     - [예제 코드](#예제-코드-1)
+  - [Spring Boot Filter and Interceptor](#spring-boot-filter-and-interceptor)
+    - [Filter](#filter)
+    - [Filter 예제 코드](#filter-예제-코드)
 
 # WEB 
 
-- [WEB 개요](./1_web)
+- [WEB 개요](./01_web)
 
 # Spring
 
@@ -52,8 +55,8 @@
 
 ### IoC 예제 코드
 
-- [java ioc / di](./3_ioc)
-- [spring ioc](./4_spring-ioc)
+- [java ioc / di](./03_ioc)
+- [spring ioc](./04_spring-ioc)
 
 ## DI (Dependency Injection)
 
@@ -87,11 +90,11 @@
 
 ### AOP 예제 코드
 
-- [aop](./5_aop)
+- [aop](./05_aop)
 
 # Spring Boot
 
-- [스프링부트 개요](./2_spring_boot)
+- [스프링부트 개요](./02_spring_boot)
 
 ## Spring Boot Annotations
 
@@ -185,13 +188,13 @@ public void run(String id, String pw, int age){
 
 ### spring boot basic validation
 
-- [simple validation project](./7_validation)
+- [simple validation project](./07_validation)
 
 ### spring boot custom validation
 
 - `AssertTrue/False`와 같은 method 지정을 통해서 Custom Logic 적용 가능
 - `ConstraintValidator`를 적용하여 재사용이 가능한 Custom Logic 적용 가능
-- [custom validation project](./7_validation)
+- [custom validation project](./07_validation)
 
 ## Spring Boot Exception
 
@@ -210,4 +213,24 @@ Web Application 의 입장에서 바라 보았을때, 에러가 났을 때 내�
 
 ### 예제 코드
 
-- [spring boot exception project](./8_exception)
+- [spring boot exception project](./08_exception)
+
+## Spring Boot Filter and Interceptor
+
+### Filter
+
+Filter란 Web Application에서 관리되는 영역으로써 Spring Boot Framework에서 Client로 부터 오는 요청/응답  
+에 대해서 최초/최종 단계의 위치에 존재하며, 이를 통해서 요청/응답의 정보를 변경하거나, Spring에 의해서  
+데이터가 변환되기 전의 순수한 Client의 요청/응답 값을 확인 할 수 있다.
+
+**유일하게 ServletRequest, ServletReponse 의 객체를 변환** 할 수 있다.
+
+주로 Spring Framework에서는 request / response의 Logging 용도로 활용하거나,  
+인증과 관련된 Logic들을 해당 Filter에서 처리 한다.
+
+이를 선/후 처리 함으로써, Service business logic과 분리 시킨다.
+
+### Filter 예제 코드
+
+- [spring boot filter project](./09_filter)
+
