@@ -25,6 +25,8 @@
   - [Spring Boot Filter and Interceptor](#spring-boot-filter-and-interceptor)
     - [Filter](#filter)
     - [Filter 예제 코드](#filter-예제-코드)
+    - [Interceptor](#interceptor)
+    - [Interceptor 예제 코드](#interceptor-예제-코드)
 
 # WEB 
 
@@ -234,3 +236,15 @@ Filter란 Web Application에서 관리되는 영역으로써 Spring Boot Framewo
 
 - [spring boot filter project](./09_filter)
 
+### Interceptor
+
+Interceptor란 Filter와 매우 유사한 형태로 존재 하지만, 차이점은 Spring COntext에 등록된다.
+
+AOP와 유사한 기능을 제공 할 수 있으며,  
+주로 **인증 단계**를 처리 하거나, Logging을 하는 데에 사용한다.
+
+이를 선/후 처리 함으로써, Service business logic과 분리 시킨다.
+
+### Interceptor 예제 코드
+
+-  [spring boot interceptor project](./10_interceptor)
