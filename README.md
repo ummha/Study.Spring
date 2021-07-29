@@ -27,12 +27,18 @@
     - [Filter 예제 코드](#filter-예제-코드)
     - [Interceptor](#interceptor)
     - [Interceptor 예제 코드](#interceptor-예제-코드)
+  - [비동기 처리하기](#비동기-처리하기)
+- [Server(Client) to Server 의 연결](#serverclient-to-server-의-연결)
 
 # WEB 
+
+[🔼](#목차)
 
 - [WEB 개요](./01_web)
 
 # Spring
+
+[🔼](#목차)
 
 - Spring 1.0 버전은 2004년 3월 출시
   - 지난 20년까지의 세월 동안 단 한번도 자바 엔터프라이즈 어플리케이션 개발의 최고의 자리를 차지
@@ -52,15 +58,21 @@
 
 ## IoC (Inversion of Control)
 
+[🔼](#목차)
+
 - 스프링에서는 일반적인 Java 객체를 new로 생성하여 개발자가 관리 하는 것이 아닌 Spring Contrainer에 모두 맡긴다.
 - 즉, 개발자에서 -> 프레임워크로 **제어**의 객체 관리의 **권한이 넘어 갔음** 으로 **"제어의 역전"** 이라고 한다.
 
 ### IoC 예제 코드
 
+[🔼](#목차)
+
 - [java ioc / di](./03_ioc)
 - [spring ioc](./04_spring-ioc)
 
 ## DI (Dependency Injection)
+
+[🔼](#목차)
 
 - 장점
   - 의존성으로 부터 격리시켜 코드 테스트에 용이하다.
@@ -70,7 +82,11 @@
 
 ## AOP (Aspect Oriented Programming)
 
+[🔼](#목차)
+
 ### 관점 지향 프로그램
+
+[🔼](#목차)
 
 스프링 어플리케이션은 대부분 특별한 경우를 제외 하고는 MVC 웹 어플리케이션에서는 Web Layer, Business Layer, Data Layer 로 정의
 
@@ -79,6 +95,8 @@
 - Date Layer : 데이터 베이스 및 외부와의 연동을 처리
 
 ### AOP 주요 Annotation
+
+[🔼](#목차)
 
 |Annotation|의미|
 |---|---|
@@ -92,13 +110,19 @@
 
 ### AOP 예제 코드
 
+[🔼](#목차)
+
 - [aop](./05_aop)
 
 # Spring Boot
 
+[🔼](#목차)
+
 - [스프링부트 개요](./02_spring_boot)
 
 ## Spring Boot Annotations
+
+[🔼](#목차)
 
 |Annotation|의미|
 |---|---|
@@ -132,11 +156,15 @@
 
 ## Spring Boot Validation
 
+[🔼](#목차)
+
 Validation이란 프로그래밍에 있어서 가장 필요한 부분이다. 특히 Java에서는 null 값에 대해서 접근  
 하려고 할 때 null pointer exception이 발생 함으로, 이러한 부분을 방지 하기 위해서 미리 검증을 하는  
 과정을 Validation 이라고 한다.
 
 ### 예제 코드
+
+[🔼](#목차)
 
 ```java
 public void run(String id, String pw, int age){
@@ -151,12 +179,16 @@ public void run(String id, String pw, int age){
 
 ### 예제 코드의 문제점
 
+[🔼](#목차)
+
 1. 검증해야 할 값이 많은 경우 코드의 길이가 길어 진다.
 2. 구현에 따라서 달라 질 수 있지만 Service Logic과의 분리가 필요하다.
 3. 흩어져 있는 경우 어디에서 검증을 하는지 알기 어려우며, 재사용의 한계가 있다.
 4. 구현에 따라 달라 질 수 있지만, 검증 Logic이 변경 되는 경우 테스트 코드 등 참조하는 클래스에서 Logic이 변경되어야 하는 부분이 발생 할 수 있다.
 
 ### Annotation 기반 Validation
+
+[🔼](#목차)
 
 |annotation|검증 내용|
 |---|---|
@@ -176,29 +208,41 @@ public void run(String id, String pw, int age){
 
 ### Gradle dependencies
 
+[🔼](#목차)
+
 `implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.5.2'`
 
 - https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
 
 ### Bean validation spec
 
+[🔼](#목차)
+
 - https://beanvalidation.org/2.0-jsr380/
 
 ### 핸드폰번호 정규식
+
+[🔼](#목차)
 
 - `"^\\d{2,3}-\\d{3,4}-\\d{4}$"`
 
 ### spring boot basic validation
 
+[🔼](#목차)
+
 - [simple validation project](./07_validation)
 
 ### spring boot custom validation
+
+[🔼](#목차)
 
 - `AssertTrue/False`와 같은 method 지정을 통해서 Custom Logic 적용 가능
 - `ConstraintValidator`를 적용하여 재사용이 가능한 Custom Logic 적용 가능
 - [custom validation project](./07_validation)
 
 ## Spring Boot Exception
+
+[🔼](#목차)
 
 - Exception 처리
 
@@ -215,11 +259,17 @@ Web Application 의 입장에서 바라 보았을때, 에러가 났을 때 내�
 
 ### 예제 코드
 
+[🔼](#목차)
+
 - [spring boot exception project](./08_exception)
 
 ## Spring Boot Filter and Interceptor
 
+[🔼](#목차)
+
 ### Filter
+
+[🔼](#목차)
 
 Filter란 Web Application에서 관리되는 영역으로써 Spring Boot Framework에서 Client로 부터 오는 요청/응답  
 에 대해서 최초/최종 단계의 위치에 존재하며, 이를 통해서 요청/응답의 정보를 변경하거나, Spring에 의해서  
@@ -234,9 +284,13 @@ Filter란 Web Application에서 관리되는 영역으로써 Spring Boot Framewo
 
 ### Filter 예제 코드
 
+[🔼](#목차)
+
 - [spring boot filter project](./09_filter)
 
 ### Interceptor
+
+[🔼](#목차)
 
 Interceptor란 Filter와 매우 유사한 형태로 존재 하지만, 차이점은 Spring COntext에 등록된다.
 
@@ -247,4 +301,18 @@ AOP와 유사한 기능을 제공 할 수 있으며,
 
 ### Interceptor 예제 코드
 
+[🔼](#목차)
+
 -  [spring boot interceptor project](./10_interceptor)
+
+## 비동기 처리하기
+
+[🔼](#목차)
+
+- [spring boot async project](./11_async)
+
+# Server(Client) to Server 의 연결
+
+- [server to server project](./12_server2server)
+
+[🔼](#목차)
