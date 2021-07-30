@@ -1,7 +1,11 @@
 package com.example.client.service;
 
+import com.example.client.dto.Req;
 import com.example.client.dto.UserRequest;
 import com.example.client.dto.UserResponse;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.MediaType;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -17,7 +21,7 @@ public class RestTemplateService {
 
     // get response by Object
     // 헤더와 같은 상세 정보 조회 불가능
-    public String hello(){
+    public String hello() {
         URI uri = UriComponentsBuilder.fromUriString("http://localhost:9090")
                 .path("/api/server/hello")
                 .encode()
@@ -34,7 +38,7 @@ public class RestTemplateService {
 
     // get response by ResponseEntity
     // 헤더와 같은 상세 정보 조회 가능
-    public String hello2(){
+    public String hello2() {
         URI uri = UriComponentsBuilder.fromUriString("http://localhost:9090")
                 .path("/api/server/hello")
                 .encode()
@@ -52,7 +56,7 @@ public class RestTemplateService {
         return result.getBody();
     }
 
-    public UserResponse hello3(){
+    public UserResponse hello3() {
         URI uri = UriComponentsBuilder.fromUriString("http://localhost:9090")
                 .path("/api/server/user")
                 .encode()
@@ -90,7 +94,7 @@ public class RestTemplateService {
         return result.getBody();
     }
 
-    public UserResponse post(){
+    public UserResponse post() {
         // http://localhost:9090/api/server/user/{userId}/name/{userName}
 
         // path로 값을 넘기는 방법
@@ -115,6 +119,80 @@ public class RestTemplateService {
         System.out.println(response.getStatusCode());
         System.out.println(response.getHeaders());
         System.out.println(response.getBody());
+
+        return response.getBody();
+    }
+
+    public UserResponse exchange() {
+        // http://localhost:9090/api/server/user2/{userId}/name/{userName}
+
+        // path로 값을 넘기는 방법
+        URI uri = UriComponentsBuilder
+                .fromUriString("http://localhost:9090")
+                .path("/api/server/user2/{userId}/name/{userName}")
+                .encode()
+                .build()
+                .expand(100, "steve")
+                .toUri();
+        System.out.println(uri.toString());
+
+        // http body -> object -> object mapper -> json -> rest template -> http body json
+        UserRequest req = new UserRequest();
+        req.setName("steve");
+        req.setAge(20);
+
+        //header setting
+        RequestEntity requestEntity = RequestEntity.post(uri)
+                .contentType(MediaType.APPLICATION_JSON)
+                .header("x-authorization", "abcd")
+                .header("custom-header", "ffff")
+                .body(req);
+
+        // 호출
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<UserResponse> response = restTemplate.exchange(requestEntity, UserResponse.class);
+
+        return response.getBody();
+    }
+
+    public Req<UserResponse> genericExchange() {
+        // http://localhost:9090/api/server/user3/{userId}/name/{userName}
+
+        // path로 값을 넘기는 방법
+        URI uri = UriComponentsBuilder
+                .fromUriString("http://localhost:9090")
+                .path("/api/server/user3/{userId}/name/{userName}")
+                .encode()
+                .build()
+                .expand(100, "steve")
+                .toUri();
+        System.out.println(uri.toString());
+
+        // http body -> object -> object mapper -> json -> rest template -> http body json
+        UserRequest userRequest = new UserRequest();
+        userRequest.setName("steve");
+        userRequest.setAge(20);
+
+        Req<UserRequest> req = new Req<UserRequest>();
+        Req.Header hReq = new Req.Header();
+        hReq.setResponseCode("OK");
+        req.setHeader(hReq);
+        req.setResponseBody(userRequest);
+
+
+        //header setting
+        RequestEntity<Req<UserRequest>> requestEntity = RequestEntity.post(uri)
+                .contentType(MediaType.APPLICATION_JSON)
+                .header("x-authorization", "abcd")
+                .header("custom-header", "ffff")
+                .body(req);
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        ResponseEntity<Req<UserResponse>> response
+                = restTemplate.exchange(requestEntity,
+                new ParameterizedTypeReference<Req<UserResponse>>() {
+                });
 
         return response.getBody();
     }
