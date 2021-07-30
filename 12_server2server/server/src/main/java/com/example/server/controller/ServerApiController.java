@@ -1,18 +1,17 @@
 package com.example.server.controller;
 
 import com.example.server.dto.User;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/server")
 public class ServerApiController {
 
     @GetMapping("/hello")
     public String hello(){
-        return "hello server";
+        return "hello get server";
     }
 
     @GetMapping("/user")
@@ -20,6 +19,13 @@ public class ServerApiController {
         User user = new User();
         user.setName("steve");
         user.setAge(25);
+        return user;
+    }
+
+    @PostMapping("/user/{userId}/name/{userName}")
+    public User postUser(@RequestBody User user, @PathVariable int userId, @PathVariable String userName){
+        log.info("client req : {}", user);
+        log.info("userId : {}, userName : {}", userId, userName);
         return user;
     }
 
