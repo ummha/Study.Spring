@@ -29,6 +29,8 @@
     - [Interceptor 예제 코드](#interceptor-예제-코드)
   - [비동기 처리하기](#비동기-처리하기)
 - [Server(Client) to Server 의 연결](#serverclient-to-server-의-연결)
+- [JUnit](#junit)
+  - [Junit 예제 코드](#junit-예제-코드)
 
 # WEB 
 
@@ -313,6 +315,30 @@ AOP와 유사한 기능을 제공 할 수 있으며,
 
 # Server(Client) to Server 의 연결
 
+[🔼](#목차)
+
 - [server to server project](./12_server2server)
 
+
+# JUnit
+
 [🔼](#목차)
+
+- **TDD (Test-driven Development)**
+
+테스트 주도 개발에서 사용하지만, 코드의 유지 보수 및 운영 환경에서의 에러를 미리 방지 하기 위해서  
+단위 별로 검증 하는 테스트 프레임워크
+
+- **단위테스트**
+
+작성한 코드가 기대하는 대로 동작을 하는지 검증 하는 절차
+
+- **JUnit**
+
+Java기반의 단위 테스트를 위한 프레임워크  
+Annotation 기반으로 테스트를 지원하며, Assert를 통하여, (예상, 실제) 를 통해 검증
+
+## Junit 예제 코드
+
+- [java gradle Junit project](./13_junit)
+- [spring boot Junit project](./14_spring_junit)

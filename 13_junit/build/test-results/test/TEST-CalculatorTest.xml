@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CalculatorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-08-02T06:40:59" hostname="MINSEO" time="0.933">
+  <properties/>
+  <testcase name="dollar()" classname="CalculatorTest" time="0.933"/>
+  <system-out><![CDATA[22000
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
