@@ -30,7 +30,7 @@
   - [비동기 처리하기](#비동기-처리하기)
 - [Server(Client) to Server 의 연결](#serverclient-to-server-의-연결)
 - [JUnit](#junit)
-  - [Junit 예제 코드](#junit-예제-코드)
+    - [Junit 예제 코드](#junit-예제-코드)
 
 # WEB 
 
@@ -338,7 +338,14 @@ AOP와 유사한 기능을 제공 할 수 있으며,
 Java기반의 단위 테스트를 위한 프레임워크  
 Annotation 기반으로 테스트를 지원하며, Assert를 통하여, (예상, 실제) 를 통해 검증
 
-## Junit 예제 코드
+- **Jacoco**
+
+Java코드의 코드 커버리지를 체크하는 라이브러리  
+결과를 html, xml, csv 로 확인이 가능하다.
+
+### Junit 예제 코드
+
+[🔼](#목차)
 
 - [java gradle Junit project](./13_junit)
 - [spring boot Junit project](./14_spring_junit)
